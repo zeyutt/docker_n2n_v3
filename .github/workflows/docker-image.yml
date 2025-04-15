@@ -3,10 +3,6 @@ name: Docker Build & Push
 on:
   push:
     branches: [ "main" ]
-    paths-ignore:
-      - ".gitignore"
-      - "README.md"
-      - ".vscode/**"
     paths:  # 仅当Dockerfile或相关文件变化时触发
       - 'Dockerfile'
       - '​**​/Dockerfile'
@@ -15,7 +11,7 @@ on:
     branches: [ "main" ]
 env:
   REGISTRY: ghcr.io  # 镜像名称规范：ghcr.io/<GITHUB_OWNER>/<REPO_NAME>
-  IMAGE_NAME: ${{ github.repository }} 
+  IMAGE_NAME: ${{ github.repository | lower }} 
   
 jobs:
   build-and-push:
