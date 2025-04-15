@@ -9,6 +9,12 @@ on:
       - 'docker/​**​'
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: '镜像标签 (默认: latest)'
+        required: false
+        default: 'latest'
 env:
   REGISTRY: ghcr.io  # 镜像名称规范：ghcr.io/<GITHUB_OWNER>/<REPO_NAME>
   IMAGE_NAME: ${{ github.repository | lower }} 
@@ -39,7 +45,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || 'latest' }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
