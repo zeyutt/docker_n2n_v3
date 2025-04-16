@@ -1,5 +1,5 @@
 # docker_n2n_v3
-全部基于docker使用n2n-v3搭建虚拟局域网，提供的服务端，客户端的docker image，使用actions自动编译推送，具体发布版请在Package中寻找ghcr.io镜像地址。注意：(use docker to deploy n2n supernode on your own cloud server and get a private virtual intranet for your machines) 
+全部基于docker使用n2n-v3搭建虚拟局域网，提供的服务端，客户端的docker image，使用actions自动编译推送，具体发布版请在Package中寻找ghcr.io镜像地址。(use docker to deploy n2n supernode on your own cloud server and get a private virtual intranet for your machines) 
 ## proxy 加速
 在`/etc/docker/daemon.json`的[registry-mirrors]字段添加 "https://ghcr.nju.edu.cn" , 记得需要`sudo systemctl daemon-reload && sudo systemctl restart docker` 来重启docker
 ## supernode 启动
