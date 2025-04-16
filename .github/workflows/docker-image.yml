@@ -17,7 +17,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ toLowerCase(github.repository) }}  # 关键修复点
+  IMAGE_NAME: ${{ github.repository }}  # 关键修复点
 
 jobs:
   build-and-push:
