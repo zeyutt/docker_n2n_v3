@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.18
 
 ENV type edge
 ENV listenport 61099
@@ -15,6 +15,7 @@ RUN buildDeps=" \
         curl \
         linux-headers \
         openssl-dev \
+        unzip \
         "; \
         set -x \
         && apk add --update openssl \
